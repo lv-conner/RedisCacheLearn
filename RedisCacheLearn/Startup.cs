@@ -17,11 +17,13 @@ namespace RedisCacheLearn
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            //Add Redis cache service to request services;
             services.AddDistributedRedisCache(options=> 
             {
                 options.Configuration = "localhost";
                 options.InstanceName = "Demo";
             });
+            //Add memory cache service to request services
             services.AddMemoryCache();
         }
 
